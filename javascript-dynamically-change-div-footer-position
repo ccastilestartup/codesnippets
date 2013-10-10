@@ -1,0 +1,30 @@
+function getDocHeight() {
+var D = document;
+return Math.max(
+        Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+        Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+        Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+    );
+}
+
+window.onload = function (){
+    var div=document.getElementById('sadrzaj');
+    if(div) {
+        var z=div.offsetTop+div.offsetHeight;
+    var z2=div.offsetTop+div.offsetHeight+18;
+    var windowHeight= getDocHeight();
+if(z>windowHeight) {
+        var footer = document.getElementById('footer');
+        footer.setAttribute("style","margin-top:" + z + "px");
+
+        var foot_sadrzaj = document.getElementById('foot_sadrzaj');
+        foot_sadrzaj.setAttribute("style","margin-top:" + z2 + "px");
+}
+else {
+    var footer = document.getElementById('footer');
+        footer.setAttribute("style","margin-top:" + windowHeight + "px");
+
+        var foot_sadrzaj = document.getElementById('foot_sadrzaj');
+        foot_sadrzaj.setAttribute("style","margin-top:" + (windowHeight+18) + "px");
+    }
+}
